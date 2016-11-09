@@ -11,4 +11,4 @@ class Player(object):
         self.card.punch(number)
 
     def is_bingo(self):
-        return self.card_is_bingo
+        return self.card.is_bingo
