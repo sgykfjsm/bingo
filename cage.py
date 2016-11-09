@@ -18,7 +18,7 @@ class Cage(object):
     >>> c.pop()
     Traceback (most recent call last):
       ...
-    CageEmptyError: 'The cage has been already empty.'
+    CageEmptyError: The cage has been already empty.
     """
     numbers = range(1, 76)
 
@@ -37,8 +37,4 @@ class Cage(object):
 
 class CageEmptyError(Exception):
     """Raised when a cage has no number in its slot."""
-    def __init__(self, message):
-        self.message = message
-
-    def __str__(self):
-        return repr(self.message)
+    pass
