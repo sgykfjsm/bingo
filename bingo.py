@@ -17,4 +17,4 @@ class Bingo(object):
         return self.cage.pop()
 
     def winners(self):
-        return [p for p in self.players if p.card_check]
+        return [p for p in self.players if p.is_bingo]
