@@ -82,6 +82,7 @@ class Card(object):
 
         return False
 
+    @property
     def aa(self):
         result = ''
         for i in range(0, 25):
@@ -92,9 +93,10 @@ class Card(object):
         return result
 
 
+# TODO: Remove below later
 if __name__ == '__main__':
     c = Card()
-    print(c.aa())
+    print(c.aa)
     c.punch(10)
     print('')
-    print(c.aa())
+    print(c.aa)
