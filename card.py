@@ -18,17 +18,12 @@ class Card(object):
         self.numbers = self.__generate()
 
     def __generate(self):
-        b = list(range(1, 16))
-        i = list(range(16, 31))
-        n = list(range(31, 46))
-        g = list(range(46, 61))
-        o = list(range(61, 76))
         random = SystemRandom()
-        random.shuffle(b)
-        random.shuffle(i)
-        random.shuffle(n)
-        random.shuffle(g)
-        random.shuffle(o)
+        b = random.sample(list(range(1, 16)), 5)
+        i = random.sample(list(range(16, 31)), 5)
+        n = random.sample(list(range(31, 46)), 5)
+        g = random.sample(list(range(46, 61)), 5)
+        o = random.sample(list(range(61, 76)), 5)
         result = []
         for x in range(1, 26):
             if x == 13:  # free spot
