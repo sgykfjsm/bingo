@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import uuid
 import random
 
 
@@ -7,7 +6,6 @@ class Card(object):
     """Card Class.
 
     attributes:
-        id: card id
         numbers: the numbers printed on card
         > 一番左の列は1-15の中から5個選ばれている。
         > 同様に、左から2列目は16-30、中央列は31-45、右から2列目は46-60、
@@ -17,7 +15,6 @@ class Card(object):
         from https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%B3%E3%82%B4
     """
     def __init__(self):
-        self.id = uuid.uuid4().hex
         self.numbers = self.__generate()
 
     def __generate(self):
