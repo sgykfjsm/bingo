@@ -29,7 +29,7 @@ class Card(object):
         random.shuffle(g)
         random.shuffle(o)
         result = []
-        for x in range(1, 26):  # col
+        for x in range(1, 26):
             if x == 13:  # free spot
                 result.append(0)  # zero means 'opened'
                 continue
@@ -59,12 +59,9 @@ class Card(object):
                 return True
 
         for x in range(0, 5):  # tate
-            b = self.numbers[x]
-            i = self.numbers[x + 5]
-            n = self.numbers[x + 10]
-            g = self.numbers[x + 15]
-            o = self.numbers[x + 20]
-            if b + i + n + g + o == 0:
+            if self.numbers[x] + self.numbers[x + 5] \
+                    + self.numbers[x + 10] + self.numbers[x + 15] \
+                    + self.numbers[x + 20] == 0:
                 return True
 
         # naname
