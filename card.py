@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import random
+from random import SystemRandom
 
 
 class Card(object):
@@ -18,11 +18,12 @@ class Card(object):
         self.numbers = self.__generate()
 
     def __generate(self):
-        b = range(1, 16)
-        i = range(16, 31)
-        n = range(31, 46)
-        g = range(46, 61)
-        o = range(61, 76)
+        b = list(range(1, 16))
+        i = list(range(16, 31))
+        n = list(range(31, 46))
+        g = list(range(46, 61))
+        o = list(range(61, 76))
+        random = SystemRandom()
         random.shuffle(b)
         random.shuffle(i)
         random.shuffle(n)
