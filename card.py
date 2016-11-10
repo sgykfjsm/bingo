@@ -13,9 +13,67 @@ class Card(object):
         > 選ばれている[2]。各列を「B・I・N・G・O」の5文字に対応させ、
         > 番号を選ぶ際に「Bの5」「Gの58」のようなコールをされることもある。
         from https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%B3%E3%82%B4
+
+    >>> Card(list(range(1, 10)))
+    Traceback (most recent call last):
+      ...
+    ValueError: if argument numbers is not None, it should be numeric list and have just 25 numric letters
+    >>> c = Card()
+    >>> len(c.numbers)
+    25
+    >>> c = Card(list(range(1, 26)))
+    >>> print(c.aa)
+      1  2  3  4  5
+      6  7  8  9 10
+     11 12  _ 14 15
+     16 17 18 19 20
+     21 22 23 24 25
+    >>> c.punch(11)
+    >>> print(c.aa)
+      1  2  3  4  5
+      6  7  8  9 10
+      _ 12  _ 14 15
+     16 17 18 19 20
+     21 22 23 24 25
+    >>> c.is_bingo()
+    False
+    >>> c.punch(26)
+    >>> print(c.aa)  # same as previous
+      1  2  3  4  5
+      6  7  8  9 10
+      _ 12  _ 14 15
+     16 17 18 19 20
+     21 22 23 24 25
+    >>> c.is_bingo()
+    False
+    >>> c.punch(12)
+    >>> c.is_bingo()
+    False
+    >>> c.punch(14)
+    >>> c.is_bingo()
+    False
+    >>> c.punch(15)
+    >>> c.is_bingo()
+    True
+    >>> print(c.aa)
+      1  2  3  4  5
+      6  7  8  9 10
+      _  _  _  _  _
+     16 17 18 19 20
+     21 22 23 24 25
     """
-    def __init__(self):
-        self.numbers = self.__generate()
+    def __init__(self, numbers=None):
+        if numbers is not None:
+            # TODO: Should I validate whether all elements of numbers
+            #       is number or not?
+            if len(numbers) != 25:
+                msg = 'if argument numbers is not None, '
+                msg += 'it should be numeric list '
+                msg += 'and have just 25 numric letters'
+                raise ValueError(msg)
+            else:
+                numbers[12] = 0  # free spot
+        self.numbers = self.__generate() if numbers is None else numbers
 
     def __generate(self):
         random = SystemRandom()
