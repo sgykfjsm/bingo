@@ -1,0 +1,8 @@
+machine:
+  post:
+    - pyenv global 3.5.1 2.7.12
+dependencies:
+  override:
+    - pip install -r test_requirements.txt
+test:
+  override: tox
