@@ -31,4 +31,4 @@ install:
   - "pip install -r test_requirements.txt"
 
 test_script:
-  - py.test --doctest-module -v bingo/cage.py bingo/card.py
+  - "py.test --doctest-module -v bingo/cage.py bingo/card.py"
