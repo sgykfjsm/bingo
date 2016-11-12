@@ -3,9 +3,9 @@ from .card import Card
 
 
 class Player(object):
-    def __init__(self, player_id):
+    def __init__(self, player_id, numbers=None):
         self.id = player_id
-        self.card = Card()
+        self.card = Card(numbers)
 
     def punch(self, number):
         self.card.punch(number)
