@@ -1,0 +1,16 @@
+# https://packaging.python.org/appveyor/
+version: 1.0.{build}
+environment:
+  matrix:
+    # For Python versions available on Appveyor, see
+    # http://www.appveyor.com/docs/installed-software#python
+    - PYTHON: "C:\\Python27"
+    - PYTHON: "C:\\Python35"
+install:
+  # We need wheel installed to build wheels
+  - "%PYTHON%\\python.exe -m pip install -r test_requirements.txt"
+build:
+  verbosity: minimal
+
+test_script:
+  - py.test --doctest-module -v bingo/cage.py bingo/card.py
