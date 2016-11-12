@@ -14,13 +14,17 @@ class Cage(object):
     False
     >>> i in c.out
     True
-    >>> _ = [c.pop() for _ in range(1, 75)]
-    >>> c.pop()
-    Traceback (most recent call last):
-      ...
-    CageEmptyError: The cage has been already empty.
+
+    # >>> _ = [c.pop() for _ in range(1, 75)]
+    # >>> c.pop()
+    # Traceback (most recent call last):
+    #   ...
+    ### Python2
+    # CageEmptyError: The cage has been already empty.
+    ### Python3
+    # bingo.cage.CageEmptyError: The cage has been already empty.
     """
-    numbers = range(1, 76)
+    numbers = list(range(1, 76))
 
     def __init__(self):
         self.out = []
