@@ -1,0 +1,7 @@
+language: python
+python:
+  - "2.7.12"
+  - "3.5.1"
+install:
+  - pip install -r test_requirements.txt
+script: tox
