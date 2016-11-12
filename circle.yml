@@ -3,7 +3,7 @@ machine:
     - pyenv global 3.5.1 2.7.12
 dependencies:
   pre:
-    - pip install --disable-pip-version-check --user --upgrade pip
+    - pip install --disable-pip-version-check --upgrade pip
   override:
     - pip install -r test_requirements.txt
 test:
