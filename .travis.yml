@@ -12,7 +12,7 @@ matrix:
       python: 3.5
       env: TOXENV=py35
 install:
-  - pip install --disable-pip-version-check --user --upgrade pip
+  - pip install --disable-pip-version-check --upgrade pip
   - pip install -r test_requirements.txt
 script:
   - tox -e ${TOXENV}
