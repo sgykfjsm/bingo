@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from cage import Cage
-from player import Player
+from .cage import Cage
+from .player import Player
 
 
 class Bingo(object):
