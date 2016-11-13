@@ -108,14 +108,10 @@ class Card(object):
         if self.numbers.count(0) < 5:
             return False
 
-        for x in range(0, 5):  # yoko
-            if sum(self.numbers[x * 5:(x * 5) + 5]) == 0:
-                return True
-
-        for x in range(0, 5):  # tate
-            if self.numbers[x] + self.numbers[x + 5] \
-                    + self.numbers[x + 10] + self.numbers[x + 15] \
-                    + self.numbers[x + 20] == 0:
+        for x in range(0, 5):
+            # yoko or tate
+            if sum(self.numbers[x * 5:(x * 5) + 5]) == 0 \
+                    or sum(self.numbers[x:x + 21:5]) == 0:
                 return True
 
         # naname
@@ -139,12 +135,3 @@ class Card(object):
             if (i + 1) % 5 == 0 and i != 24:
                 result += '\n'
         return result
-
-
-# TODO: Remove below later
-if __name__ == '__main__':
-    c = Card()
-    print(c.aa)
-    c.punch(10)
-    print('')
-    print(c.aa)

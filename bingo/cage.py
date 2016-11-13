@@ -24,10 +24,9 @@ class Cage(object):
     ### Python3
     # bingo.cage.CageEmptyError: The cage has been already empty.
     """
-    numbers = list(range(1, 76))
-
     def __init__(self):
         self.out = []
+        self.numbers = list(range(1, 76))
 
     def pop(self):
         if len(self.numbers) == 0:
