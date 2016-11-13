@@ -1,0 +1,4 @@
+include README.md
+include test_requirements.txt
+prune *.pyc
+recursive-include tests *.py
