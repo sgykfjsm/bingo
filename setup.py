@@ -9,15 +9,9 @@ from setuptools.command.test import test as TestCommand
 __version__ = '0.1.0'
 
 
-def _requirements():
-    if os.path.exists('requirements.txt'):
-        with open('', 'r') as fd:
-            return [name.strip() for name in fd.readlines()]
-
-
-def _requirements_test():
-    if os.path.exists('test_requirements.txt'):
-        with open('test_requirements.txt', 'r') as fd:
+def _requirements(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as fd:
             return [name.strip() for name in fd.readlines()]
 
 
@@ -46,8 +40,8 @@ setup(
     keywords="bingo",
     license='Apache License 2.0',
     packages=["bingo"],
-    install_requires=_requirements(),
-    tests_require=_requirements_test(),
+    install_requires=_requirements('requirements.txt'),
+    tests_require=_requirements('test_requirements.txt'),
     cmdclass={'test': PyTest},
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[

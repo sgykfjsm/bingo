@@ -64,8 +64,6 @@ class Card(object):
     """
     def __init__(self, numbers=None):
         if numbers is not None:
-            # TODO: Should I validate whether all elements of numbers
-            #       is number or not?
             if len(numbers) != 25:
                 msg = 'if argument numbers is not None, '
                 msg += 'it should be numeric list '
@@ -77,11 +75,8 @@ class Card(object):
 
     def __generate(self):
         random = SystemRandom()
-        b = random.sample(list(range(1, 16)), 5)
-        i = random.sample(list(range(16, 31)), 5)
-        n = random.sample(list(range(31, 46)), 5)
-        g = random.sample(list(range(46, 61)), 5)
-        o = random.sample(list(range(61, 76)), 5)
+        b, i, n, g, o = \
+            [random.sample(list(range(x, (x * 15) + 1)), 5) for x in range(1, 6)]
         result = []
         for x in range(1, 26):
             if x == 13:  # free spot
