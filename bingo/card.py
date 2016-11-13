@@ -109,19 +109,14 @@ class Card(object):
             return False
 
         for x in range(0, 5):
-            # yoko or tate
+            # yoko and tate
             if sum(self.numbers[x * 5:(x * 5) + 5]) == 0 \
                     or sum(self.numbers[x:x + 21:5]) == 0:
+
                 return True
 
         # naname
-        if self.numbers[0] + self.numbers[6] \
-                + self.numbers[12] + self.numbers[18] \
-                + self.numbers[24] == 0 \
-                or \
-                self.numbers[4] + self.numbers[8] \
-                + self.numbers[12] + self.numbers[16] \
-                + self.numbers[20] == 0:
+        if sum(self.numbers[0:25:6]) == 0 or sum(self.numbers[4:21:4]) == 0:
             return True
 
         return False
